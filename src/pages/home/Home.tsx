@@ -30,14 +30,21 @@ const Home = (): JSX.Element => {
   }, []);
 
   const renderProducts = () => {
-    return products.map(({ id, name, color, year, pantone_value }: Product): JSX.Element => {
-      console.log(id);
-      return (
-        <Grid key={id} item xs={6}>
-          <Box>1</Box>
-        </Grid>
-      );
-    });
+    return products
+      .map(({ id, name, color, year, pantone_value }: Product): JSX.Element => {
+        return (
+          <Grid key={id} item xs={12}>
+            <ProductItem
+              id={id}
+              name={name}
+              color={color}
+              year={year}
+              pantone_value={pantone_value}
+            />
+          </Grid>
+        );
+      })
+      .slice(0, 5);
   };
 
   return (
@@ -46,19 +53,6 @@ const Home = (): JSX.Element => {
       <FilterTextField id="outlined-basic" label="Filter-only numbers" variant="outlined" />
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
         {renderProducts()}
-        {/* 
-        <Grid item xs={6}>
-          <Box>1</Box>
-        </Grid>
-        <Grid item xs={6}>
-          <Box>2</Box>
-        </Grid>
-        <Grid item xs={6}>
-          <Box>3</Box>
-        </Grid>
-        <Grid item xs={6}>
-          <Box>4</Box>
-        // </Grid> */}
       </Grid>
     </HomeBox>
   );

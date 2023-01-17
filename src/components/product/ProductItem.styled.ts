@@ -1,6 +1,14 @@
 import { styled } from '@mui/material/styles';
-import { Box, TextField } from '@mui/material';
+import { Box, CardContent } from '@mui/material';
 
 export const ProductBox = styled(Box)(({}) => ({
-  border: '1px solid red',
+  width: '80%',
+  margin: '0 auto',
+}));
+
+export const ProductCardContent = styled(CardContent)(({}) => ({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  padding: '10px 30px',
 }));
