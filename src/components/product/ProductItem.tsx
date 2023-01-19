@@ -10,7 +10,6 @@ import {
   DialogContent,
   DialogContentText,
   DialogTitle,
-  Slide,
   Button,
 } from '@mui/material';
 
@@ -52,17 +51,19 @@ const ProductItem = ({ id, name, color, year, pantone_value }: Product) => {
         onClose={handleClose}
         aria-describedby="alert-dialog-slide-description"
       >
-        <DialogTitle>{"Use Google's location service?"}</DialogTitle>
+        <DialogActions>
+          <Button onClick={handleClose}>Close</Button>
+        </DialogActions>
+        <DialogTitle>{'More about the product'}</DialogTitle>
         <DialogContent>
+          <DialogContentText id="alert-dialog-slide-description">{`ID : ${id}`}</DialogContentText>
+          <DialogContentText id="alert-dialog-slide-description">{`NAME : ${name}`}</DialogContentText>
+          <DialogContentText id="alert-dialog-slide-description">{`YEAR : ${year}`}</DialogContentText>
+          <DialogContentText id="alert-dialog-slide-description">{`COLOR : ${color}`}</DialogContentText>
           <DialogContentText id="alert-dialog-slide-description">
-            Let Google help apps determine location. This means sending anonymous location data to
-            Google, even when no apps are running.
+            {`PAYTONE VALUE : ${pantone_value}`}
           </DialogContentText>
         </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose}>Disagree</Button>
-          <Button onClick={handleClose}>Agree</Button>
-        </DialogActions>
       </Dialog>
     </ProductBox>
   );
